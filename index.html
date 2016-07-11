@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Commission Calculator</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+		<style>
+			 input.c-fc-xs {
+				width:auto;
+			 }
+			 table.table-fixed {
+				table-layout: fixed;
+			 }
+			 img.logo {
+			 	width:200px;
+			 }
+		</style>
+	</head>
+	<body>
+
+		<div class="container m-t-1" id="commission_calculator">
+			<div class="row m-b-1">
+				<div class="col-lg-12 text-xs-center">
+					<img class="logo m-b-1" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNzIuNjggOTIuOTMiPgoJPHN0eWxlPgoJCS5hIHsgZmlsbDogIzNiNDE3ZjsgfQoJPC9zdHlsZT4KCTxwYXRoIGNsYXNzPSJhIiBkPSJNODcuNzcsMEg4Mi4xMWMtMjYsLjkyLTQ3LjQxLDE3LjkyLTU2LjY4LDQzLjY5LTEuNTIsNC4yMS0uNDYsNi41Ljk0LDQuODVhMjAsMjAsMCwwLDEsMTUuMjMtNy40OGM3LjEsMCwxMy40LDQuMDYsMTcuMjksMTAuMzIsMiwzLDIuNjksMy4xNSw0LjU0LjA4LDQuNy03LjgsMTEuMzMtMTMsMjItMTNzMTYuMTQsNC45NCwyMSwxM2MxLjg1LDMuMDcsMi41LDIuODgsNC41My0uMDgsMy44OS02LjI2LDEwLjE5LTEwLjMyLDE3LjI5LTEwLjMyYTIwLjA4LDIwLjA4LDAsMCwxLDE1LjIzLDcuNDhjMS40MSwxLjY1LDIuNDYtLjY1Ljk0LTQuODVDMTM1LjE1LDE3Ljk0LDExMy44Ljk0LDg3Ljc3LDAiIC8+Cgk8cGF0aCBjbGFzcz0iYSIgZD0iTTEwLjUxLDcxLjc2aDIuMTNhMTAuMjcsMTAuMjcsMCwwLDEsNC41NiwxLjE3LDQuMzcsNC4zNywwLDAsMCw2LTEuMTIsMC42NywwLjY3LDAsMCwwLS4xNi0xQTE5LjEsMTkuMSwwLDAsMCwyMCw2OC42OGgwYTE1LjQ3LDE1LjQ3LDAsMCwwLTcuMzUtMkgxMC41MUM1LjQ1LDY2LjcsMCw3MC43NCwwLDc5LjYydjAuMjNjMCw4LjA4LDUuMzQsMTIuOTEsMTAuNTEsMTIuOTFIMTIuN2ExNC43MSwxNC43MSwwLDAsMCw2LjA4LTEuNDVoMGExNy4zMiwxNy4zMiwwLDAsMCw0LjI5LTIuNzUsMC42NywwLjY3LDAsMCwwLC4xNi0xLDQuNDksNC40OSwwLDAsMC02LTEuMTVsLTAuNTQuMjlhOS43MSw5LjcxLDAsMCwxLTMuOTQsMUgxMC41MWMtMy4zNywwLTUuNDYtNC4wOC01LjQ2LTcuODZWNzkuNjJDNS4wNSw3NC45Miw3LjI1LDcxLjc2LDEwLjUxLDcxLjc2WiIgLz4KCTxwYXRoIGNsYXNzPSJhIiBkPSJNNTguNCw2Ny41MmEwLjY1LDAuNjUsMCwwLDAtLjY5LTAuNyw0LjM1LDQuMzUsMCwwLDAtNC4zNiw0LjM1YzAsMS41NCwwLDExLjU0LDAsMTEuNTQsMCw0LjY0LTUuOSw1LTcuNzEsNUg0NS40MWMtMS44MSwwLTcuNzEtLjM2LTcuNzEtNSwwLDAsMC0xMCwwLTExLjU0YTQuMzUsNC4zNSwwLDAsMC00LjM2LTQuMzUsMC42NSwwLjY1LDAsMCwwLS42OS43YzAsMy4wOSwwLDE1LjE5LDAsMTUuMTksMCw2LDUuMTMsMTAuMDUsMTIuNzYsMTAuMDVoMC4yM2M3LjYzLDAsMTIuNzYtNCwxMi43Ni0xMC4wNUM1OC40MSw4Mi43MSw1OC40LDcwLjYyLDU4LjQsNjcuNTJaIiAvPgoJPHBhdGggY2xhc3M9ImEiIGQ9Ik05OC44MSw2Ny4yMkE0LjM1LDQuMzUsMCwwLDAsOTMsNjkuMzdMODUuOTMsODQuODNjLTAuMzkuODYtMS40OSwyLjg2LTMuMTIsMi44Ni0xLjQ3LDAtMi41Ni0xLjc4LTMuMjItMy4yOC0yLjMzLTUuMy02LjI1LTE0LjE0LTYuNjMtMTVhNC4zNSw0LjM1LDAsMCwwLTUuNzUtMi4yMSwwLjY2LDAuNjYsMCwwLDAtLjM0LjkyYzEuNzcsNCw2LjA3LDEzLjcyLDguMDksMTguMzIsMi4yOSw1LjIsNS41Myw2LjMsNy44NCw2LjMsMy4yMSwwLDYtMi4xMiw3LjcyLTUuOCwyLjMxLTUsNi44MS0xNC44Myw4LjYyLTE4Ljc5QTAuNjUsMC42NSwwLDAsMCw5OC44MSw2Ny4yMloiIC8+Cgk8cGF0aCBjbGFzcz0iYSIgZD0iTTE3Mi42OCw2OC4zNWEwLjY1LDAuNjUsMCwwLDAtLjY5LTAuNzFBNC4zNSw0LjM1LDAsMCwwLDE2Ny42Myw3MmMwLDAuNiwwLDEuNTEsMCwxLjUxdjcuMzhjMCwzLjM2LTMuNjIsNy05LDdIMTU4Yy0yLjY5LDAtNi41OC0yLjgtNi41OC03Ljg2Vjc5Ljc1YzAtNC43NiwyLjEyLTcuNzcsNS41Mi03Ljg2aDQuNzRBNC4zNSw0LjM1LDAsMCwwLDE2Niw2Ny41M2EwLjY1LDAuNjUsMCwwLDAtLjcxLTAuNjljLTEuODYsMC04LjE0LDAtOC41MiwwYTkuOTQsOS45NCwwLDAsMC03LjU2LDMuNzEsMTQuMzUsMTQuMzUsMCwwLDAtMi44OCw5LjJWODBjMCw3LjcyLDYsMTIuOTEsMTEuNjMsMTIuOTFoMC42NmExNS43OCwxNS43OCwwLDAsMCw5LjIyLTMsNC40LDQuNCwwLDAsMCw0LjE2LDMsMC42NSwwLjY1LDAsMCwwLC42OS0wLjcxVjY4LjM1WiIgLz4KCTxwYXRoIGNsYXNzPSJhIiBkPSJNMTM5Ljg5LDY3LjIzYTQuMzUsNC4zNSwwLDAsMC01Ljc3LDIuMTVsLTEsMi4xNlMxMjkuNiw3OS4yMSwxMjcsODQuODNjLTAuNC44Ni0xLjQ5LDIuODYtMy4xMywyLjg2LTEuNDcsMC0yLjU2LTEuNzgtMy4yMi0zLjI4LTIuMzMtNS4yOS02LjI1LTE0LjE0LTYuNjMtMTVhNC4zNSw0LjM1LDAsMCwwLTUuNzUtMi4yLDAuNjUsMC42NSwwLDAsMC0uMzQuOTJjMS43Nyw0LDYuMDcsMTMuNzMsOC4wOSwxOC4zMSwyLjI5LDUuMjEsNS41Myw2LjMsNy44NCw2LjMsMy4yMSwwLDYtMi4xMSw3LjcyLTUuOCwyLjI5LTUsNi44MS0xNC44Myw4LjYyLTE4Ljc5QTAuNjUsMC42NSwwLDAsMCwxMzkuODksNjcuMjNaIiAvPgo8L3N2Zz4K" alt="Cuvva Logo">
+					<h2 class="display-4">Commission Pricing Model</h2>
+				</div>
+			</div>
+			<div class="row m-b-1">
+				<div class="col-lg-12">
+					<div class="card">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Example Configuration</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Commission Rate</td>
+									<td><input type="text" class="form-control form-control-sm" v-model="maxCommissionRate | percentage"></td>
+									<td><small><em>Maximum percentage of total premium which can go to Cuvva</em></small></td>
+								</tr>
+								<tr>
+									<td>Cuvva Fees</td>
+									<td><input type="text" class="form-control form-control-sm" v-model="maxExtraFees | currencyDisplay"></td>
+									<td><small><em>Standard Cuvva fees</em></small></td>
+								</tr>
+								<tr>
+									<td>Net Premium</td>
+									<td><input type="text" class="form-control form-control-sm" v-model="underwriterPremium | currencyDisplay"></td>
+									<td><small><em>Total premium to be paid out to underwriter</em></small></td>
+								</tr>
+								<tr>
+									<td>IPT Rate</td>
+									<td><input type="text" class="form-control form-control-sm" v-model="iptRate | percentage"></td>
+									<td><small><em>Insurance Premium Tax</em></small></td>
+								</tr>
+								<tr>
+									<td>Minimum Charge</td>
+									<td><input type="text" class="form-control form-control-sm" v-model="minimumCharge | currencyDisplay"></td>
+									<td><small><em>The minimum amount Cuvva's payment processor can charge</em></small></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<table class="table table-fixed">
+						<thead>
+							<tr>
+								<th>Example Situations</th>
+								<th>Normal</th>
+								<th>10% Off</th>
+								<th>&pound;10 Off</th>
+								<th>Cost Price</th>
+								<th>Custom</th>
+							</tr>
+							<tr>
+								<th colspan="6">Pricing</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Net Premium</td>
+								<td>{{ normal.underwriterPremium | currencyDisplay }}</td>
+								<td>{{ percentTen.underwriterPremium | currencyDisplay }}</td>
+								<td>{{ poundTen.underwriterPremium | currencyDisplay }}</td>
+								<td>{{ costPrice.underwriterPremium | currencyDisplay }}</td>
+								<td>{{ custom.underwriterPremium | currencyDisplay }}</td>
+							</tr>
+							<tr>
+								<td>Commission</td>
+								<td>{{ normal.commission | currencyDisplay }}</td>
+								<td>{{ percentTen.commission | currencyDisplay }}</td>
+								<td>{{ poundTen.commission | currencyDisplay }}</td>
+								<td>{{ costPrice.commission | currencyDisplay }}</td>
+								<td>{{ custom.commission | currencyDisplay }}</td>
+							</tr>
+							<tr>
+								<td>Total Premium</td>
+								<td>{{ normal.totalPremium | currencyDisplay }}</td>
+								<td>{{ percentTen.totalPremium | currencyDisplay }}</td>
+								<td>{{ poundTen.totalPremium | currencyDisplay }}</td>
+								<td>{{ costPrice.totalPremium | currencyDisplay }}</td>
+								<td>{{ custom.totalPremium | currencyDisplay }}</td>
+							</tr>
+							<tr>
+								<td>IPT</td>
+								<td>{{ normal.ipt | currencyDisplay }}</td>
+								<td>{{ percentTen.ipt | currencyDisplay }}</td>
+								<td>{{ poundTen.ipt | currencyDisplay }}</td>
+								<td>{{ costPrice.ipt | currencyDisplay }}</td>
+								<td>{{ custom.ipt | currencyDisplay }}</td>
+							</tr>
+							<tr>
+								<td>Cuvva Fees</td>
+								<td>{{ normal.extraFees | currencyDisplay }}</td>
+								<td>{{ percentTen.extraFees | currencyDisplay }}</td>
+								<td>{{ poundTen.extraFees | currencyDisplay }}</td>
+								<td>{{ costPrice.extraFees | currencyDisplay }}</td>
+								<td>{{ custom.extraFees | currencyDisplay }}</td>
+							</tr>
+							<tr>
+								<td>Deductions</td>
+								<td>{{ normal.deductions | currencyDisplay }}</td>
+								<td>{{ percentTen.deductions | currencyDisplay }}</td>
+								<td>{{ poundTen.deductions | currencyDisplay }}</td>
+								<td>{{ costPrice.deductions | currencyDisplay }}</td>
+								<td>{{ custom.deductions | currencyDisplay }}</td>
+							</tr>
+							<tr>
+								<th>Total</th>
+								<th>{{ normal.totalPayable | currencyDisplay }}</th>
+								<th>{{ percentTen.totalPayable | currencyDisplay }}</th>
+								<th>{{ poundTen.totalPayable | currencyDisplay }}</th>
+								<th>{{ costPrice.totalPayable | currencyDisplay }}</th>
+								<th>{{ custom.totalPayable | currencyDisplay }}</th>
+							</tr>
+						</tbody>
+						<thead>
+							<tr>
+								<th colspan="6">Calculation Info</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Target Discount</td>
+								<td>{{ normal.targetDiscount | currencyDisplay }}</td>
+								<td>{{ percentTen.targetDiscount | currencyDisplay }}</td>
+								<td>{{ poundTen.targetDiscount | currencyDisplay }}</td>
+								<td>{{ costPrice.targetDiscount | currencyDisplay }}</td>
+								<td><input type="text" class="form-control form-control-sm" v-model="customDiscount | currencyDisplay"></td>
+							</tr>
+							<tr>
+								<td>Commission Rate</td>
+								<td>{{ normal.commissionRate | percentage }}</td>
+								<td>{{ percentTen.commissionRate | percentage }}</td>
+								<td>{{ poundTen.commissionRate | percentage }}</td>
+								<td>{{ costPrice.commissionRate | percentage }}</td>
+								<td>{{ custom.commissionRate | percentage }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
+		<script>
+			Vue.filter('currencyDisplay', {
+				read: function (val) {
+					return '£ ' + (val / 100).toFixed(2);
+				},
+				write: function (val) {
+					var number = +val.replace(/[^\d.]/g, '');
+					return isNaN(number) ? 0 : Math.round(number * 100);
+				}
+			});
+
+			Vue.filter('percentage', {
+				read: function (val) {
+					return (val * 100).toFixed(1) + ' %';
+				},
+				write: function (val) {
+					var number = +val.replace(/[^\d.]/g, '');
+					return isNaN(number) ? 0 : parseFloat(number / 100, 10);
+				}
+			});
+
+			var vm = new Vue({
+				el: '#commission_calculator',
+
+				data: {
+					maxCommissionRate: 0.50,
+					maxExtraFees: 100,
+					underwriterPremium: 500,
+					iptRate: 0.095,
+					minimumCharge: 30,
+					customDiscount: 250,
+				},
+
+				computed: {
+					normal: function () {
+						return this.calculatePricing(0);
+					},
+					percentTen: function () {
+						var normal = this.calculatePricing(0);
+						return this.calculatePricing(Math.round(normal.totalPayable * 0.1));
+					},
+					poundTen: function () {
+						return this.calculatePricing(1000);
+					},
+					costPrice: function () {
+						var normal = this.calculatePricing(0);
+						var amount = normal.totalPayable - (normal.underwriterPremium * (1 + this.iptRate));
+						return this.calculatePricing(Math.round(amount));
+					},
+					custom: function () {
+						return this.calculatePricing(this.customDiscount);
+					}
+				},
+
+				methods: {
+					calculatePricing: function (discount) {
+						var targetDiscount = discount;
+						var uwPrem = this.underwriterPremium;
+						var reverseCommissionRate = this.maxCommissionRate / (1 - this.maxCommissionRate);
+						var commission = Math.round(uwPrem * reverseCommissionRate);
+
+						var extra = this.maxExtraFees;
+						var deductions = 0;
+
+						if (discount) {
+							var tempTotalPrem = uwPrem + commission;
+							var tempIpt = Math.round(tempTotalPrem * this.iptRate);
+							var tempTotal = tempTotalPrem + tempIpt + extra;
+
+							if (discount > (tempTotal - this.minimumCharge))
+								discount = tempTotal - this.minimumCharge;
+
+							var stillToDiscount = discount;
+							var previousTotal = tempTotal;
+
+							if (stillToDiscount > (commission * (1 + this.iptRate)))
+								commission = 0;
+							else
+								commission -= Math.round(stillToDiscount / (1 + this.iptRate));
+
+							tempTotalPrem = uwPrem + commission;
+							tempIpt = Math.round(tempTotalPrem * this.iptRate);
+							tempTotal = tempTotalPrem + tempIpt + extra;
+
+							stillToDiscount -= previousTotal - tempTotal;
+							previousTotal = tempTotal;
+
+							if (stillToDiscount > extra)
+								extra = 0;
+							else
+								extra -= stillToDiscount;
+
+							tempTotal = tempTotalPrem + tempIpt + extra;
+							deductions = stillToDiscount - (previousTotal - tempTotal);
+						}
+
+						var totalPrem = uwPrem + commission;
+						var ipt = Math.round(totalPrem * this.iptRate);
+						var totalPayable = totalPrem + ipt + extra - deductions;
+						var commissionRate = commission / totalPrem;
+
+						return {
+							underwriterPremium: uwPrem,
+							commission: commission,
+							totalPremium: totalPrem,
+							ipt: ipt,
+							extraFees: extra,
+							deductions: deductions,
+							totalPayable: totalPayable,
+							commissionRate: commissionRate,
+							targetDiscount: targetDiscount,
+						};
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
